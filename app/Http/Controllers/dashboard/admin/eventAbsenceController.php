@@ -64,9 +64,8 @@ class eventAbsenceController extends Controller
     {
         $result = $this->absenceService->storeEventAbsence($request, $request->post("email"), $request->post("nim"), $request->post("university"), $request->post("isMember"), $request->post("member_id"), $request->post("status"), $request->post("event_id"), $request->post("paid"));
 
-        // if (!$result) return redirect()->route("dashboard.admin.event.index")->with("error", "terjadi kesalahan");
-        // return redirect()->route("dashboard.admin.event.index")->with("success", "berhasil di tambahkan");
-        dd($result);
+        if (!$result) return redirect()->route("dashboard.admin.event.index")->with("error", "terjadi kesalahan");
+        return redirect()->route("dashboard.admin.event.index")->with("success", "berhasil di tambahkan");
     }
 
     /**

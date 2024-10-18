@@ -64,9 +64,8 @@ class MeetAbsenceController extends Controller
     {
         $result = $this->absenceService->storeMeetAbsence($request, $request->post("meet_id"), $request->post("member_id"), $request->post("status"));
 
-        // if (!$result) return redirect()->route("dashboard.admin.meet.index")->with("error", "terjadi kesalahan");
-        // return redirect()->route("dashboard.admin.meet.index")->with("success", "berhasil absen masuk");
-        dd($result);
+        if (!$result) return redirect()->route("dashboard.admin.meet.index")->with("error", "terjadi kesalahan");
+        return redirect()->route("dashboard.admin.meet.index")->with("success", "berhasil absen masuk");
     }
 
     /**
